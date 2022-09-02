@@ -1,5 +1,7 @@
+// react
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
+// components
 import App from "./App";
 import GlobalStylesStyled from "./components/settings/GlobalStyles";
 

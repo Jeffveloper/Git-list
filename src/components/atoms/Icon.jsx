@@ -1,7 +1,8 @@
+import { memo } from "react";
 import PropTypes from "prop-types";
 import { Icon as IconClass } from "../icon/icon.class";
 
-const Icon = ({ icon, size, color }) => {
+const Icon = memo(({ icon, size, color }) => {
 	return (
 		<svg
 			width={size}
@@ -13,7 +14,7 @@ const Icon = ({ icon, size, color }) => {
 			{icon && icon.code}
 		</svg>
 	);
-};
+});
 
 Icon.propTypes = {
 	size: PropTypes.string,
