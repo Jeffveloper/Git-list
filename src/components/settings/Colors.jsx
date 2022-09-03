@@ -6,7 +6,7 @@ const COLOR = css`
 	--black: #141414;
 	--grey: #8b949e;
 	--bg: #0d1117;
-	--button: #22262c;
+	--buttonColor: #22262c;
 	--grey-2: #c5ced7;
 	--pink: #cc68a0;
 	--yellow: #f1e05a;

@@ -10,7 +10,7 @@ const GlobalStylesStyled = createGlobalStyle`
     ${TYPOGRAPHY}
   }
   body{
-    margin: 0;
+    margin: 0;  
     background-color: var(--bg);
     color: var(--grey);
     font: var(--body1-regular);

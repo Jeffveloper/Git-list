@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 // icon
 import Icon from "../atoms/Icon";
 
-const ItemT1Styled = styled.li`
+const ItemT1Styled = styled.div`
 	display: flex;
 	align-items: left;
+	flex-direction: row;
 	gap: 8px;
 
 	.info__text {
