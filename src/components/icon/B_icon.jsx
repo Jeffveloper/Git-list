@@ -28,7 +28,7 @@ export const BRANCH = new Icon(
 		<>
 			<path
 				d="M6 3V15"
-				stroke="#141414"
+				// stroke="#141414"
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"

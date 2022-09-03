@@ -3,7 +3,7 @@ import styled from "styled-components";
 const LayoutStyled = styled.main`
 	min-block-size: 100vh;
 	margin: auto;
-	max-inline-size: 75rem;
+	max-inline-size: 375px;
 	padding-inline: 20px;
 
 	/* border: 3px solid red; */
@@ -12,6 +12,7 @@ const LayoutStyled = styled.main`
 		display: grid;
 		grid-template-columns: 278px 1fr;
 		grid-template-rows: auto 1fr;
+		max-inline-size: 75rem;
 		column-gap: 2rem;
 		grid-template-areas: "profile filters" "profile repoList";
 	}

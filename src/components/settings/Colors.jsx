@@ -14,4 +14,19 @@ const COLOR = css`
 	--black-2: #171b21;
 `;
 
+const COLORJS = {
+	primary: "#57a6ff",
+	white: "#fffffe",
+	black: "#141414",
+	grey: "#8b949e",
+	bg: "#0d1117",
+	buttonColor: "#22262c",
+	grey2: "#c5ced7",
+	pink: "#cc68a0",
+	yellow: "#f1e05a",
+	purple: "#563d7c",
+	black2: "#171b21",
+};
+
 export default COLOR;
+export { COLORJS };

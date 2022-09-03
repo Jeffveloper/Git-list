@@ -6,7 +6,7 @@ export const CANCEL = new Icon(
 		<>
 			<path
 				d="M18 6L6 18"
-				stroke="#141414"
+				// stroke="#141414"
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"

@@ -6,7 +6,7 @@ export const ARROW_DOWN = new Icon(
 		<>
 			<path
 				d="M6 9L12 15L18 9"
-				stroke="#141414"
+				// stroke="#141414"
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
