@@ -1,10 +1,9 @@
-// components
 import styled from "styled-components";
-
+// components
 import ProfileHead from "../ProfileHead";
 import ProfileBody from "../ProfileBody";
-
-// img
+// custom hooks
+import useConnection from "../../../hooks/useConnection";
 
 const ProfileStyled = styled.div`
 	grid-area: profile;
@@ -12,14 +11,16 @@ const ProfileStyled = styled.div`
 	padding-block-end: 40px;
 `;
 
-function Profile() {
+const Profile = () => {
+	const userData = useConnection("/Jeffveloper");
+
 	return (
 		<ProfileStyled>
 			{/* ProfilePic */}
-			<ProfileHead />
-			<ProfileBody />
+			<ProfileHead user={userData} />
+			<ProfileBody user={userData} />
 		</ProfileStyled>
 	);
-}
+};
 
 export default Profile;

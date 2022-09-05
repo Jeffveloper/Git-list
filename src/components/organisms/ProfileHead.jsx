@@ -1,10 +1,7 @@
 import styled from "styled-components";
-// img
-import ProfilePicture from "/img/ProfilePicture.png";
 
 const ProfileHeadStyled = styled.div`
-	display: grid;
-	grid-template-columns: auto auto;
+	display: flex;
 	gap: 16px;
 	align-items: center;
 	margin-block-end: 1.5rem;
@@ -23,10 +20,8 @@ const ProfileHeadStyled = styled.div`
 		flex-direction: column;
 		gap: 8px;
 		box-sizing: border-box;
-		width: 100%;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		overflow-x: auto;
+		min-inline-size: 0;
+		inline-size: 100%;
 	}
 	.profile__name {
 		box-sizing: border-box;
@@ -58,19 +53,21 @@ const ProfileHeadStyled = styled.div`
 	}
 `;
 
-const ProfileHead = () => {
+const ProfileHead = ({ user }) => {
+	const { avatar_url, name, login } = user;
+
 	return (
 		<ProfileHeadStyled>
 			<img
-				src={ProfilePicture}
-				alt="ProfilePicture"
+				src={avatar_url}
+				alt={`${name}'s avatar`}
 				className="profile__avatar"
 				width="278"
 				height="278"
 			/>
 			<div className="profile__userName">
-				<h1 className="profile__name">Jefferson Araujogaaaaaaa</h1>
-				<h2 className="profile__user">Jeffveloper</h2>
+				<h1 className="profile__name">{name}</h1>
+				<h2 className="profile__user">{login}</h2>
 			</div>
 		</ProfileHeadStyled>
 	);

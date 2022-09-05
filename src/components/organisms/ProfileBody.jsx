@@ -70,7 +70,9 @@ const ProfileBodyStyled = styled.div`
 	}
 `;
 
-const ProfileBody = () => {
+const ProfileBody = ({ user }) => {
+	const { html_url, twitter_username, location } = user;
+
 	return (
 		<ProfileBodyStyled>
 			{/* profilebuttons ------------------------*/}
@@ -102,25 +104,22 @@ const ProfileBody = () => {
 					<Icon icon={STAR} color={COLORJS.bg} stroke={COLORJS.grey} />
 					<span className="info__text--highlight">81</span>
 				</li>
-				{/* <li>
-					<Icon icon={STAR} color={COLORJS.bg} stroke={COLORJS.grey} />
-				</li> */}
 			</ul>
 			<ul className="info__list">
 				<li>
 					<Icon icon={LOCATION} color={COLORJS.bg} stroke={COLORJS.grey} />
-					<p className="info__text">Location</p>
+					<p className="info__text">{location}</p>
 				</li>
 				<li>
 					<Icon icon={LINK} color={COLORJS.bg} stroke={COLORJS.grey} />
-					<a href="https://github.com/Jeffveloper" className="info__text">
-						https://github.com/Jeffveloper
+					<a href={html_url} className="info__text">
+						{html_url}
 					</a>
 				</li>
 				<li>
 					<Icon icon={TWITTER} color={COLORJS.bg} stroke={COLORJS.grey} />
 					<a href="https://twitter.com/Jeffveloper" className="info__text">
-						@Jeffveloper
+						{twitter_username}
 					</a>
 				</li>
 			</ul>

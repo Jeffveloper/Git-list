@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const FiltersStyled = styled.div`
 	grid-area: filters;
-	background-color: blue;
+	border: 1px solid blue;
 `;
 
 const Filters = () => {
