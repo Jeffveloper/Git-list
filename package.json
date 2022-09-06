@@ -9,6 +9,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"gh-pages": "^4.0.0",
 		"octokit": "^2.0.7",
 		"prop-types": "^15.8.1",
 		"react": "^18.2.0",
