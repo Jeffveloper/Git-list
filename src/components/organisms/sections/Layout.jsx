@@ -10,11 +10,14 @@ const LayoutStyled = styled.main`
 
 	@media screen and (min-width: 768px) {
 		display: grid;
-		grid-template-columns: 278px 1fr;
+		grid-template-columns: 17.375rem 1fr;
 		grid-template-rows: auto 1fr;
-		max-inline-size: 75rem;
+		max-inline-size: 80rem;
 		column-gap: 2rem;
 		grid-template-areas: "profile filters" "profile repoList";
+	}
+	@media (min-width: 1024px) {
+		padding-inline: 32px;
 	}
 `;
 

@@ -9,6 +9,7 @@ import { HEART } from "../icon/H_icon";
 import Icon from "../atoms/Icon";
 // colors
 import { COLORJS } from "../settings/Colors";
+import { useConnectionContext } from "../../context/conection.context";
 
 const ProfileBodyStyled = styled.div`
 	display: grid;
@@ -47,6 +48,10 @@ const ProfileBodyStyled = styled.div`
 		color: var(--white);
 		margin: 0;
 	}
+	.info__link:hover {
+		color: var(--primary);
+		text-decoration: underline;
+	}
 
 	/* list */
 	.info__list {
@@ -70,8 +75,10 @@ const ProfileBodyStyled = styled.div`
 	}
 `;
 
-const ProfileBody = ({ user }) => {
-	const { html_url, twitter_username, location } = user;
+const ProfileBody = () => {
+	const { userData } = useConnectionContext();
+
+	const { html_url, twitter_username, location } = userData;
 
 	return (
 		<ProfileBodyStyled>
@@ -81,7 +88,7 @@ const ProfileBody = ({ user }) => {
 				<ProfileButton>
 					<Icon
 						icon={HEART}
-						color={COLORJS.buttonColor}
+						color={COLORJS.transparent}
 						stroke={COLORJS.pink}
 					/>
 					Sponsors
@@ -99,7 +106,6 @@ const ProfileBody = ({ user }) => {
 					<span className="info__text">·</span>
 					<span className="info__text--highlight">60</span>
 					<span className="info__text">Following</span>
-					<span className="info__text--highlight">81</span>
 					<span className="info__text">·</span>
 					<Icon icon={STAR} color={COLORJS.bg} stroke={COLORJS.grey} />
 					<span className="info__text--highlight">81</span>
@@ -112,13 +118,16 @@ const ProfileBody = ({ user }) => {
 				</li>
 				<li>
 					<Icon icon={LINK} color={COLORJS.bg} stroke={COLORJS.grey} />
-					<a href={html_url} className="info__text">
+					<a href={html_url} className="info__text info__link">
 						{html_url}
 					</a>
 				</li>
 				<li>
 					<Icon icon={TWITTER} color={COLORJS.bg} stroke={COLORJS.grey} />
-					<a href="https://twitter.com/Jeffveloper" className="info__text">
+					<a
+						href="https://twitter.com/Jeffveloper"
+						className="info__text info__link"
+					>
 						{twitter_username}
 					</a>
 				</li>

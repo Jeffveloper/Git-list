@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useConnectionContext } from "../../../context/conection.context";
 import Repository from "../Repository";
 
 const RepoListStyled = styled.div`
@@ -7,11 +8,15 @@ const RepoListStyled = styled.div`
 `;
 
 const RepoList = () => {
+	const { reposData } = useConnectionContext();
+
 	return (
 		<RepoListStyled>
-			<Repository />
-			<Repository />
-			<Repository />
+			{reposData.map((repo) => {
+				if (repo.name !== "Jeffveloper") {
+					return <Repository key={repo.id} reposData={repo} />;
+				}
+			})}
 		</RepoListStyled>
 	);
 };

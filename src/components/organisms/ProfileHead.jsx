@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useConnectionContext } from "../../context/conection.context";
 
 const ProfileHeadStyled = styled.div`
 	display: flex;
@@ -53,8 +54,10 @@ const ProfileHeadStyled = styled.div`
 	}
 `;
 
-const ProfileHead = ({ user }) => {
-	const { avatar_url, name, login } = user;
+const ProfileHead = () => {
+	const { userData } = useConnectionContext();
+
+	const { avatar_url, name, login } = userData;
 
 	return (
 		<ProfileHeadStyled>

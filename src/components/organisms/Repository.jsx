@@ -1,9 +1,15 @@
+// compos
 import styled from "styled-components";
 import Icon from "../atoms/Icon";
+// icons
 import { STAR } from "../icon/S_icon";
-import { BRANCH } from "../icon/B_icon";
 import { COLORJS } from "../settings/Colors";
-import Line from "/img/ActivityLine.png";
+// img
+import RepoContent from "../molecules/RepoContent";
+import TechTag from "../atoms/TechTag";
+import RepoStats from "../atoms/RepoStats";
+import BadgeBtn from "../molecules/BadgeBtn";
+import GRAPH from "../../constants/Graph.constant";
 
 const RepositoryStyled = styled.div`
 	display: flex;
@@ -11,166 +17,80 @@ const RepositoryStyled = styled.div`
 	gap: 16px;
 	padding-block-end: 32px;
 	margin-block-end: 32px;
-	border-block-end: solid 1px var(--grey);
+	border-block-end: solid 0.5px var(--borderBtn);
+	box-sizing: border-box;
 
 	.repo__col--1 {
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
 	}
-
-	/* repo head */
-	.repo__head {
-		display: flex;
-		gap: 16px;
-		height: auto;
-	}
-	.repo__title {
-		color: var(--primary);
-		font: var(--headline2-semi-bold);
-		margin: 0;
-	}
-	.repo__visibility {
-		color: var(--grey);
-		font: var(--caption-regular);
-		border: solid 1px var(--grey);
-		display: inline;
-		padding: 2px 8px;
-		border-radius: 8px;
-		margin: 0;
-	}
-
-	/* repo desc */
-	.repo__desc {
-		font: var(--body2-regular);
-		color: var(--grey);
-		margin: 0;
-	}
-
 	/* tags */
-
 	.repo_tags {
 		display: flex;
 		gap: 5px;
-	}
-	.tag {
-		font: var(--caption-medium);
-		color: var(--primary);
-		margin: 0;
-		background-color: #15223a;
-		padding: 4px 12px;
-		border-radius: 38px;
-	}
 
+		max-width: 100%;
+		flex-wrap: wrap;
+	}
 	/* repo__stats */
-	.repo__stats {
-		display: flex;
-		gap: 16px;
-		color: var(--grey);
-		font: var(--caption-regular);
-	}
-	.repo__stats svg {
-		width: 20px;
-	}
-	.repo__stats p {
-		margin: 0;
-	}
-	.tech,
-	.stars,
-	.forks {
-		display: flex;
-		gap: 8px;
-		align-items: center;
-	}
-	.color {
-		border-radius: 50%;
-		width: 16px;
-		height: 16px;
-		background-color: yellow;
-	}
+
 	/* -------------------- */
 	.repo__col--2 {
 		display: flex;
+		flex-direction: row;
 		gap: 16px;
 		justify-content: space-between;
 	}
-	.starBtn {
-		display: flex;
-		background: var(--buttonColor);
-		padding: 8px 16px;
-		gap: 8px;
-		border-radius: 8px;
-		width: max-content;
-	}
-	.starBtn p {
-		margin: 0;
-		font: var(--body2-semi-bold);
-		color: var(--white);
-	}
 
-	@media (min-width: 768px) {
-		display: grid;
-		grid-template-columns: 60% 40%;
-	}
-	.repo__col--2 {
-		flex-direction: column;
-		align-items: flex-end;
-		gap: 48px;
-		align-self: flex-start;
+	@media (min-width: 1024px) {
+		/* display: grid;
+		grid-template-columns: 60% 40%; */
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+
+		.repo__col--2,
+		.repo__col--1 {
+			flex-wrap: wrap;
+		}
+		.repo__col--2 {
+			flex-direction: column;
+			align-items: flex-end;
+			gap: 48px;
+			align-self: flex-start;
+		}
 	}
 `;
 
-const Repository = () => {
+const Repository = ({ reposData }) => {
+	// context
+	const { topics } = reposData;
+	// activity line
+	const activityLine = GRAPH[Math.floor(Math.random() * GRAPH.length)];
+
 	return (
 		<RepositoryStyled>
 			<div className="repo__col--1">
-				<div className="repo__head">
-					<h2 className="repo__title">Proyecto tututu</h2>
-					<p className="repo__visibility">Public</p>
-				</div>
-				<p className="repo__desc">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos in hic
-					sapiente quaerat consequuntur. Recusandae sint architecto non quisquam
-				</p>
+				<RepoContent repos={reposData} />
 				<div className="repo_tags">
-					<p className="tag">HTML</p>
-					<p className="tag">CSS</p>
-					<p className="tag">JS</p>
+					{topics.map((tech) => {
+						return <TechTag key={tech} tech={tech} />;
+					})}
 				</div>
-				<div className="repo__stats">
-					<div className="tech">
-						<div className="color"></div>
-						<p>JS</p>
-					</div>
-					<div className="stars">
-						<Icon
-							icon={STAR}
-							color={COLORJS.buttonColor}
-							stroke={COLORJS.grey}
-						></Icon>
-						<p>999</p>
-					</div>
-					<div className="forks">
-						<Icon
-							icon={BRANCH}
-							color={COLORJS.buttonColor}
-							stroke={COLORJS.grey}
-						></Icon>
-						<p>9</p>
-					</div>
-					<p>updated 19 days ago</p>
-				</div>
+				<RepoStats repo={reposData} />
 			</div>
 			<div className="repo__col--2">
-				<div className="starBtn">
+				<BadgeBtn content="Star">
 					<Icon
 						icon={STAR}
-						color={COLORJS.buttonColor}
+						color={COLORJS.transparent}
 						stroke={COLORJS.grey}
+						size={20}
 					></Icon>
-					<p>Start</p>
-				</div>
-				<img src={Line} alt="Activity Line" width="142" height="25" />
+				</BadgeBtn>
+				<img src={activityLine} alt="Activity Line" width="142" height="25" />
 			</div>
 		</RepositoryStyled>
 	);

@@ -15,6 +15,12 @@ const GlobalStylesStyled = createGlobalStyle`
     color: var(--grey);
     font: var(--body1-regular);
   }
+  /* html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  } */
   `;
 
 export default GlobalStylesStyled;

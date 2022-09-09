@@ -4,16 +4,19 @@ import Profile from "./components/organisms/sections/Profile";
 import Filters from "./components/organisms/sections/Filters";
 import RepoList from "./components/organisms/sections/RepoList";
 import Search from "./components/atoms/Search";
+import ConnectionProvider from "./context/conection.context";
 
 function App() {
 	return (
-		<Layout>
-			{/* sections */}
-			<Profile />
-			<Filters />
-			<RepoList />
-			<Search />
-		</Layout>
+		<ConnectionProvider>
+			<Layout>
+				{/* sections */}
+				<Profile />
+				<Filters />
+				<RepoList />
+				<Search />
+			</Layout>
+		</ConnectionProvider>
 	);
 }
 
