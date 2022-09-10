@@ -321,7 +321,7 @@ Error generating stack: `+l.message+`
 		border: 1px solid var(--grey);
 	}
 	/* } */
-`,l0=({content:e,children:t})=>Z(o0,{children:[t,e]}),Ea=["/img/ActivityLine1.png","/img/ActivityLine2.png"],i0=je.div`
+`,l0=({content:e,children:t})=>Z(o0,{children:[t,e]}),i0="/Git-list/img/ActivityLine1.png",u0="/Git-list/img/ActivityLine2.png",Ea=[i0,u0],s0=je.div`
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
@@ -372,10 +372,10 @@ Error generating stack: `+l.message+`
 			align-self: flex-start;
 		}
 	}
-`,u0=({reposData:e})=>{const{topics:t}=e,n=Ea[Math.floor(Math.random()*Ea.length)];return Z(i0,{children:[Z("div",{className:"repo__col--1",children:[x(Kh,{repos:e}),x("div",{className:"repo_tags",children:t.map(r=>x(Zh,{tech:r},r))}),x(r0,{repo:e})]}),Z("div",{className:"repo__col--2",children:[x(l0,{content:"Star",children:x(at,{icon:rs,color:me.transparent,stroke:me.grey,size:20})}),x("img",{src:n,alt:"Activity Line",width:"142",height:"25"})]})]})},s0=je.div`
+`,a0=({reposData:e})=>{const{topics:t}=e,n=Ea[Math.floor(Math.random()*Ea.length)];return Z(s0,{children:[Z("div",{className:"repo__col--1",children:[x(Kh,{repos:e}),x("div",{className:"repo_tags",children:t.map(r=>x(Zh,{tech:r},r))}),x(r0,{repo:e})]}),Z("div",{className:"repo__col--2",children:[x(l0,{content:"Star",children:x(at,{icon:rs,color:me.transparent,stroke:me.grey,size:20})}),x("img",{src:n,alt:"Activity Line",width:"142",height:"25"})]})]})},c0=je.div`
 	grid-area: repoList;
 	/* border: solid 0.5px green; */
-`,a0=()=>{const{reposData:e}=ns();return x(s0,{children:e.map(t=>{if(t.name!=="Jeffveloper")return x(u0,{reposData:t},t.id)})})},c0=je.div``,f0=()=>x(c0,{children:"Search"});function d0(){return x(Eh,{children:Z(kh,{children:[x(Vh,{}),x(Hh,{}),x(a0,{}),x(f0,{})]})})}const p0=Wr`
+`,f0=()=>{const{reposData:e}=ns();return x(c0,{children:e.map(t=>{if(t.name!=="Jeffveloper")return x(a0,{reposData:t},t.id)})})},d0=je.div``,p0=()=>x(d0,{children:"Search"});function h0(){return x(Eh,{children:Z(kh,{children:[x(Vh,{}),x(Hh,{}),x(f0,{}),x(p0,{})]})})}const m0=Wr`
 	--headline1: 600 1.625rem/2rem Inter;
 	--button: 500 0.875rem/1.5rem Inter;
 	--headline2-semi-bold: 600 1.25rem/1.5rem Inter;
@@ -386,7 +386,7 @@ Error generating stack: `+l.message+`
 	--body2-semi-bold: 600 0.875rem/1.5rem Inter;
 	--caption-regular: 400 0.75rem/1.125rem Inter;
 	--caption-medium: 500 0.75rem/1.125rem Inter;
-`,h0=Wr`
+`,v0=Wr`
 	/* inter-300 - latin */
 	@font-face {
 		font-family: "Inter";
@@ -436,11 +436,11 @@ Error generating stack: `+l.message+`
 			/* Chrome 26+, Opera 23+, Firefox 39+ */
 				url("./fonts/inter-v12-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 	}
-`,m0=dh`
-  ${h0}
+`,g0=dh`
+  ${v0}
   :root{
     ${Dh}
-    ${p0}
+    ${m0}
   }
   body{
     margin: 0;  
@@ -454,4 +454,4 @@ Error generating stack: `+l.message+`
   *, *:before, *:after {
     box-sizing: inherit;
   } */
-  `;ni.createRoot(document.getElementById("root")).render(x(pe.exports.StrictMode,{children:Z(pt,{children:[x(d0,{}),x(m0,{})]})}));
+  `;ni.createRoot(document.getElementById("root")).render(x(pe.exports.StrictMode,{children:Z(pt,{children:[x(h0,{}),x(g0,{})]})}));
